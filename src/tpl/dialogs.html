@@ -1,0 +1,151 @@
+<div class="dialog dialog__intro">
+    <div class="dialog__inner l">
+        <div class="dialog__close" data-dialog-close></div>
+        <img class="dialog__title" src="../img/dialog_intro_title.png" alt="">
+        <div class="dialog__body">
+            <p>
+                2月16-17日期间，参加“红包连环派，新春好$_$途”互动，即有机会可获得长安马自达第二代Mazda CX-5新年红包，京东E卡礼包及搜狐视频VIP卡等你来拿！
+            </p>
+            <table>
+                <tr><td>奖品</td><td>数量</td></tr>
+                <tr><td>京东卡50元</td><td>100</td></tr>
+                <tr><td>搜狐视频月卡</td><td>400</td></tr>
+            </table>
+            <p>
+                1、点击首页第二代Mazda CX-5，进入抢红包界面。
+            </p>
+            <p>
+                2、左右移动手机，查看第二代CX-5车内全景，寻找红包线索。
+            </p>
+            <p>
+                3、点击车内提示亮点，寻找红包。若点开的画面中出现红包图案， 即为成功发现红包。
+            </p>
+            <p>
+                4、点击红包图案拆开红包，红包界面显示“恭喜您获得京东E卡”或“恭喜您搜狐VIP月卡一份”，即为获奖。
+            </p>
+            <p>
+                5、获得京东E卡的用户，请根据获奖界面提示，登记个人信息，活动后30个工作日内，工作人员凭信息发送礼品；<span>每个手机号码只能登记获奖1次，请于看到获奖提示后随即登记，否则视为放弃获奖。</span><br>
+                <span>* 如下两种情况下，视为放弃获奖机会——</span><br>
+                <span>1）、没有提交个人信息，即离开了获奖页面；</span><br>
+                <span>2）、停留在获奖页面中，但10分钟内未提交个人信息。</span>
+            </p>
+            <p>
+                6、获得搜狐视频VIP的用户，VIP卡密码随红包界面发放显示，<span>请注意截图保存，关闭红包界面后无法二次查看。</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="dialog dialog__award">
+    <div class="dialog__inner l">
+        <div class="dialog__close" data-dialog-close></div>
+        <img class="dialog__title" src="../img/dialog_award_title.png" alt="">
+        <div class="dialog__body">
+            <p>*已有<span id="mcard-sum"></span>人获得搜狐视频VIP月卡</p>
+            <p>*京东E卡获奖名单</p>
+            <ul id="phone-list"></ul>
+            <p class="tip">获得京东E卡的用户，活动后30个工作日内，工作人员凭信息发送礼品</p>
+        </div>
+    </div>
+</div>
+
+<div class="dialog dialog__success">
+    <div class="dialog__inner s">
+        <div class="dialog__close" data-dialog-close></div>
+        <img class="dialog__title" src="../img/dialog_success_title.png" alt="">
+        <div class="dialog__confirm" data-dialog-close>返回继续寻找红包</div>
+    </div>
+</div>
+
+<div class="dialog dialog__userinfo">
+    <div class="dialog__inner s">
+        <div class="dialog__close" data-dialog-close></div>
+        <div class="dialog__title">信息填写</div>
+        <div class="dialog__body">
+            <div class="form-userinfo">
+                <div class="form__field">
+                    <div class="form__label">姓名：</div>
+                    <input id="name" type="text" class="notnull" data-msg="姓名">
+                </div>
+                <div class="form__field">
+                    <div class="form__label">手机：</div>
+                    <input id="tel" type="text" maxlength="11" class="notnull" data-field="tel" data-msg="电话">
+                </div>
+                <div class="form__field">
+                    <div class="form__label">邮箱：</div>
+                    <input id="email" type="text" class="notnull" data-field="email" data-msg="邮箱">
+                </div>
+                <div class="form__tip">
+                    *请登记获奖信息，奖品将于活动结束后30个工作日内，由专人与您联系发放！不提交获奖信息，则视为放弃获奖。
+                </div>
+                <button id="submit-userinfo" type="button" class="form__confirm">提交信息</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dialog dialog__drawtip dialog__drawtip--mcard">
+    <div class="redpacket">
+        <div class="redpacket__content">
+            <div class="redpacket__content__text">
+                <img class="redpacket__content__title" src="../img/title_sub.png" alt="">
+                <p>恭喜你获得</p>
+                <p>搜狐视频VIP月卡</p>
+                <p id="mcardID">xxxxxxxxxxxxxxxxxxx</p> 
+            </div>
+        </div>
+        <div class="btn btn__share" data-dialog="dialog__share"><img src="../img/btn_share.png" alt=""></div>
+        <div class="redpacket__tip">
+            *<span>请注意截图保存</span>你的搜狐视频VIP卡密，并于<span>2018年6月30日</span>前登录搜狐视频激活卡号， 一个用户仅限激活一次
+        </div>
+        <img class="redpacket__car" src="../img/redpacket_car.png" alt="">
+        <img class="redpacket__decorate" src="../img/redpacket_decorate.png" alt="">
+    </div>
+</div>
+
+<div class="dialog dialog__drawtip dialog__drawtip--ecard">
+    <div class="redpacket">
+        <div class="redpacket__content">
+            <div class="redpacket__content__text">
+                <img class="redpacket__content__title" src="../img/title_sub.png" alt="">
+                <p>恭喜你获得</p>
+                <p>50元京东E卡</p>
+            </div>
+        </div>
+        <div class="btn btn__info" data-dialog="dialog__userinfo">
+            <img src="../img/btn_info.png" alt="">
+        </div>
+        <div class="redpacket__tip">
+            *未提交获奖信息的用户，视为放弃获奖
+        </div>
+        <img class="redpacket__car" src="../img/redpacket_car.png" alt="">
+        <img class="redpacket__decorate" src="../img/redpacket_decorate.png" alt="">
+    </div>
+</div>
+
+<div class="dialog dialog__drawtip dialog__drawtip--null">
+    <div class="redpacket">
+        <div class="redpacket__content">
+            <img class="redpacket__content__title" src="../img/title_sub.png" alt="">
+            <div class="redpacket__content__text">
+                <p>祝你</p>
+                <div data-type="1" class="redpacket__blessing"></div>
+            </div>
+        </div>
+        <div class="btn btn__continue" data-dialog-close><img src="../img/btn_continue.png" alt=""></div>
+        <img class="redpacket__car" src="../img/redpacket_car.png" alt="">
+        <img class="redpacket__decorate" src="../img/redpacket_decorate.png" alt="">
+    </div>
+</div>
+
+
+<div class="dialog dialog__share">
+    <div class="dialog-inner share-wx" data-dialog-close>
+        <img class="share-img" src="../img/share_wx.png" alt="">
+        <img class="arrow__up" src="../img/arrow_up.png" alt="">
+    </div>
+    <div class="dialog-inner share-app" data-dialog-close>
+        <img class="share-img" src="../img/share_app.png" alt="">
+        <img class="arrow__down" src="../img/arrow_down.png" alt="">
+    </div>
+</div>

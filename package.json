@@ -1,0 +1,12 @@
+{
+    "name": "sohu_project",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "webpack --version",
+        "build": "webpack --config build/webpack.prod.js",
+        "dev": "webpack-dev-server --open --config build/webpack.dev.js"
+    },
+    "author": "",
+    "license": "ISC"
+}
