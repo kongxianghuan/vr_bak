@@ -1,29 +1,27 @@
 import WXshare from 'sohu_public/components/WXshare/1.0.0'
 import $ from 'sohu_public/vendor/zepto'
 
-const WX_CONFIG = {
+var WX_CONFIG = {
     titleShare : document.title,
     urlShare: location.href,
-    picShare: 'http://img.gd.sohu.com/norefer/changan/20180216/0.jpg',
-    txtShare: ''
+    picShare: 'https://img.gd.sohu.com/norefer/changan/20180216/0.jpg',
+    txtShare: '京东E卡礼包及搜狐视频VIP卡等你来拿'
 }
 
 function isWeixin() {
-    let ua = window.navigator.userAgent.toLowerCase()
+    var ua = window.navigator.userAgent.toLowerCase()
     return ua.match(/MicroMessenger/i) == 'micromessenger'
 }
 
 class Share {
     constructor() {
         WXshare(WX_CONFIG)
-        const shareType = isWeixin() ? 'wx' : 'app' 
-        $('.dialog__share')
-            .addClass(shareType)
-            .on('click', e => $('.dialog__drawtip--mcard').removeClass('active'))
+        var shareType = isWeixin() ? 'wx' : 'app' 
+        $('.dialog__share').addClass(shareType)
     }
 }
 
-const share = new Share()
+var share = new Share()
 
 export default share
 

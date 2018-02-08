@@ -24,6 +24,17 @@ html, body {
     }
 }
 
+@keyframes scale {
+    0%, 100% {
+        transform: scale(.85);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .test {
     position: absolute;
     top: 0;
@@ -256,12 +267,13 @@ html, body {
         display: block;
         margin: 45px auto 20px;
     }
+    &.active .dialog__body {
+        -webkit-overflow-scrolling: touch;
+    }
     & .dialog__body {
-        padding: 0 20px;
         padding: 0 20px;
         height: 611px;
         overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
     }
     & table {
          border-collapse: collapse;
@@ -287,6 +299,9 @@ html, body {
     }
     & .dialog__body {
         padding: 0 44px;
+    }
+    &.active ul {
+        -webkit-overflow-scrolling: touch;
     }
     & ul {
         height: 466px;
@@ -314,6 +329,9 @@ html, body {
 }
 
 .dialog__success {
+    &.active {
+        z-index: 8888;
+    }
     & .dialog__title {
         position: absolute;
         top: 46%;
@@ -338,7 +356,7 @@ html, body {
 .dialog__userinfo {
     font-size: 24px;
     &.active {
-        z-index: 9999;
+        z-index: 7777;
     }
     & .dialog__title {
         position: relative;
@@ -381,17 +399,23 @@ html, body {
         outline: none;
     }
     & .form__field {
-        display: flex;
         height: 36px;
         margin-bottom: 36px;
         & input {
-            flex: 1;
+            display: block;
+            width: 324px;
+            height: 36px;
+            line-height: 36px;
+            margin-left: 72px;
             border-bottom: 1px solid #fff;
             outline: none;
         }
     }
     & .form__label {
-        line-height: 36px;
+        float: left;
+        width: 72px;
+        height: 36px;
+        line-height: 37px;
     }
 }
 
@@ -410,9 +434,7 @@ html, body {
         display: block;
         margin: 88px 0 20px 30px;
     }
-    &.active[data-type="null"] .luckdraw-tip.null,
     &.active[data-type="lm"] .luckdraw-tip.lm,
-    &.active[data-type="lm"] .luckdraw-tip__redpacket, 
     &.active[data-type="lm"] .luckdraw-tip__text {
         pointer-events: initial;
         opacity: 1;
@@ -421,6 +443,11 @@ html, body {
     }
     &.active[data-type="lm"] .luckdraw-tip__text {
         transition: all .3s ease .2s;
+    }
+    &.active[data-type="null"] .luckdraw-tip.null,
+    &.active[data-type="lm"] .luckdraw-tip__redpacket {
+        animation: scale .8s ease infinite .2s;
+        pointer-events: initial;
     }
 }
 
@@ -471,10 +498,22 @@ html, body {
 }
 
 .dialog__drawtip {
-    background: url("../img/dialog_redpacket_bg.jpg") center top no-repeat;
+    // background: url("../img/dialog_redpacket_bg.jpg") center top no-repeat;
+    background: transparent;
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background: url("../img/dialog_redpacket_bg.jpg") center top no-repeat;
+        z-index: -10;
+        opacity: .8;
+    }
     &.active {
         & .redpacket__content { 
-            transition: all .4s cubic-bezier(0, 1.08, 0, 1.42) .2s;
+            transition: all .6s cubic-bezier(0, 1.08, 0, 1.42) .4s;
             transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
             transform-style: preserve-3d;
@@ -490,6 +529,7 @@ html, body {
     height: 574px;
     margin-left: -185px;
     background: url("../img/redpacket.png") center bottom no-repeat;
+    z-index: 30;
     &::after {
         content: "";
         position: absolute;
@@ -565,6 +605,9 @@ html, body {
 .dialog__drawtip--mcard {
     & .redpacket__content {
         bottom: 176px;
+    }
+    & .redpacket__content__text {
+        font-size: 22px;
     }
 }
 

@@ -10,9 +10,7 @@ const SOHU_PUBLIC_PATH = path.resolve(ROOT, 'sohu_public');
 const STATIC_PATH = path.resolve(ROOT, 'static/v7');
 
 module.exports = {
-    entry: {
-        index: path.resolve(__dirname, '../src/js/index.js')
-    },
+    entry: ['babel-polyfill', path.resolve(__dirname, '../src/js/index.js')],
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'assets/[name].[hash:7].js',
@@ -28,7 +26,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js$/,
-            exclude: /node_modules/,
+            // exclude: /node_modules/,
             loader: 'babel-loader'
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

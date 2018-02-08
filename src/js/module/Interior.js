@@ -44,11 +44,11 @@ export default class Interior {
     }
 
     animate() {
-        const camera = this.stage.camera
+        var camera = this.stage.camera
         this.animateId = requestAnimationFrame(() => this.animate())
 
-        let _lon = (this.aim.lon + this.fix.lon + this.drag.lon) % 360
-        let _lat = (this.aim.lat + this.fix.lat + this.drag.lat) * 0.35
+        var _lon = (this.aim.lon + this.fix.lon + this.drag.lon) % 360
+        var _lat = (this.aim.lat + this.fix.lat + this.drag.lat) * 0.35
 
         if (_lon - camera.rotationY > 180) camera.rotationY += 360
         if (_lon - camera.rotationY < -180) camera.rotationY -= 360
@@ -84,8 +84,8 @@ export default class Interior {
 
     createBtns() {
         this.btns = new C3D.Sprite()
-        const btnImg = require('../../img/interior/btn_scene.png')
-        const btnData = [
+        var btnImg = require('../../img/interior/btn_scene.png')
+        var btnData = [
             { name: 'd1', position: [522, 662, 0], plane: 0, size: [132, 80] },
             { name: 'd2', position: [840, 632, 0], plane: 0, size: [100, 130] },
             { name: 'd3', position: [522, 1055, 0], plane: 0, size: [160, 160] },
@@ -94,7 +94,7 @@ export default class Interior {
             { name: 'd6', position: [500, 935, 0], plane: 1, size: [300, 420] }
         ]
         btnData.forEach((btn, i) => {
-            const btnObj = C3D.create({
+            var btnObj = C3D.create({
                 type: 'plane',
                 name: btn.name,
                 size: btn.size,
@@ -120,7 +120,7 @@ export default class Interior {
     bindEvents() {
         this.toggleBtn.addEventListener('click', e => this.hide())
         $('#interior').on('click', '[data-name^=d]', function () {
-            const dialogID = $(this).data('name')
+            var dialogID = $(this).data('name')
             $(`#${dialogID}`).addClass('active')
         })
     }

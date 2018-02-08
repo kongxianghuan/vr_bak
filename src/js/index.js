@@ -8,6 +8,7 @@ import './module/share'
 import Interior from './module/Interior'
 import Preloader from './module/Preloader'
 import AlloyFinger from 'sohu_public/components/AlloyFinger/0.1.10'
+import FastClick from 'sohu_public/utils/FastClick'
 import $ from 'sohu_public/vendor/zepto'
 
 class Page {
@@ -16,6 +17,7 @@ class Page {
         this.preloader = new Preloader(() => {
             $('.container, .btn__arrow').addClass('ani')
             window.interior = this.interior = new Interior()
+            FastClick.attach(document.body)
             this.bindEvents()
         })
     }
@@ -31,8 +33,8 @@ class Page {
             this.interior.show()
         })
         $('[data-dialog]').on('click', function() {
-            const dialogID = $(this).data('dialog')
-            const $dialogElem = $(`.${dialogID}`)
+            var dialogID = $(this).data('dialog')
+            var $dialogElem = $(`.${dialogID}`)
             $dialogElem.addClass('active')
         })
         $('[data-dialog-close]').on('click', function() {

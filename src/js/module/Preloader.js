@@ -1,6 +1,7 @@
-import Preload from "sohu_public/utils/preload/2.0.1"
+import Loader from "./loader"
+import $ from 'sohu_public/vendor/zepto'
 
-const IMG_SRC = [
+var IMG_SRC = [
     // cover 
     require('../../img/btn_award.png'),
     require('../../img/btn_intro.png'),
@@ -23,24 +24,40 @@ const IMG_SRC = [
 export default class Preloader {
     constructor(done) {
         this.imgSrc = IMG_SRC
+        this.complete = false
         this.done = done
         this.imgLoad()
     }
     imgLoad() {
-        this.imgLoader = new Preload.ImageLoad({
-            timeOut: 10,
-            timeOutCB(res) {
-                // console.log('timeout=', res)
-            },
-            progress(i, count) {
-                // console.log(i, count)
-            }
-        })
-        this.imgLoader.load(this.imgSrc)
-            .then((res) => {
-                // console.log('res', res)
+        var loader = Loader(IMG_SRC);
+        loader.on('progress', (per, path) => {
+            if (per > 60) { }
+        });
+        loader.on('success', () => {
+            if (!$('.container').hasClass('ani')) {
                 this.done()
-            })
-            .catch((err) => console.log(err))
+            }
+        });
+
+        setTimeout(() => {
+            if (!$('.container').hasClass('ani')) {
+                this.done()
+            }
+        }, 6000);
+        // this.imgLoader = new ImageLoad({
+        //     timeOut: 10,
+        //     timeOutCB(res) {
+        //         // console.log('timeout=', res)
+        //     },
+        //     progress(i, count) {
+        //         // console.log(i, count)
+        //     }
+        // })
+        // this.imgLoader.load(this.imgSrc)
+        //     .then((res) => {
+        //         // console.log('res', res)
+        //         this.done()
+        //     })
+        //     .catch((err) => console.log(err))
     }
 }
