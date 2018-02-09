@@ -2,7 +2,7 @@ import { proxy, formValid } from 'sohu_public/utils/jtool/1.0.0'
 import swal from 'sohu_public/components/Sweetalert'
 import $ from 'sohu_public/vendor/zepto'
 
-var API = 'http://app.gd.sohu.com/minisite/mazda/20180216/do.php'
+var API = '//app.gd.sohu.com/minisite/mazda/20180216/do.php'
 
 window.alert = str => swal({ title: str, button: '确认' }) 
 
@@ -83,9 +83,9 @@ export default class Luckdraw {
                     })
                     $('#mcard-sum').text(rs.data.sh)
                     $('.dialog__award').find('ul').html(jdList.join('')).scrollTop(0)
-                    if (rs.data.length > 14) {
-                        $('.dialog__award').find('.tip').addClass('active')       
-                    }
+                    // if (rs.data.jd.length > 14) {
+                    //     $('.dialog__award').find('.tip').addClass('active')       
+                    // }
                 } else {
                     alert('获取获奖名单失败！')
                 }
@@ -141,7 +141,7 @@ export default class Luckdraw {
                         $('.dialog__success').addClass('active');
                         $('.dialog__userinfo').removeClass('active').find('input').val('')
                     } else if (rs.status == 102) {
-                        alert('您已提交过信息！').then(val => {
+                        alert('你已经提交过获奖信息。每个电话号码只能登记一次，不能重复获奖。').then(val => {
                             if (val) {
                                 $('.dialog__detail, .dialog__drawtip, .dialog__userinfo')
                                     .removeClass('active')

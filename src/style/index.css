@@ -272,7 +272,7 @@ html, body {
     }
     & .dialog__body {
         padding: 0 20px;
-        height: 611px;
+        height: 626px;
         overflow-y: scroll;
     }
     & table {
@@ -429,10 +429,17 @@ html, body {
     & .dialog__close {
         top: -52px;
         right: 0px;
+        display: none;
     }
     & .dialog__title {
         display: block;
         margin: 88px 0 20px 30px;
+    }
+    &[data-type="null"] .dialog__inner {
+        margin-top: 26px;
+        & .dialog__close {
+            display: block;
+        }
     }
     &.active[data-type="lm"] .luckdraw-tip.lm,
     &.active[data-type="lm"] .luckdraw-tip__text {
