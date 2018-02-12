@@ -520,7 +520,7 @@ html, body {
     }
     &.active {
         & .redpacket__content { 
-            transition: all .6s cubic-bezier(0, 1.08, 0, 1.42) .4s;
+            transition: all .6s cubic-bezier(0, 1.08, 0, 1.42) .2s;
             transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
             transform-style: preserve-3d;

@@ -77,12 +77,15 @@ export default class Luckdraw {
             onStart: null,
             callback: rs => {
                 if (rs.status == 100) {
-                    var jdList = rs.data.jd.reverse().map((v, i) => {
-                        var telMosaic = this.mosaicTel(v)
-                        return `<li>${telMosaic}<li>`
-                    })
-                    $('#mcard-sum').text(rs.data.sh)
-                    $('.dialog__award').find('ul').html(jdList.join('')).scrollTop(0)
+                    if (rs.data.jd.reverse) {
+                        var jdList = rs.data.jd.reverse().map((v, i) => {
+                            var telMosaic = this.mosaicTel(v)
+                            return `<li>${telMosaic}<li>`
+                        })
+                        $('.dialog__award').find('ul').html(jdList.join('')).scrollTop(0)
+                    }
+                    var shSum = rs.data.sh || '0'
+                    $('#mcard-sum').text(shSum)
                     // if (rs.data.jd.length > 14) {
                     //     $('.dialog__award').find('.tip').addClass('active')       
                     // }
