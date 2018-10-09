@@ -164,7 +164,13 @@ export default class Luckdraw {
         var self = this
         $('.luckdraw-tip.lm').on('click', function(e) {
             var code = $(this).data('code')
-            self.checkDrawCode(code)
+            alert('活动已结束！').then(val => {
+                if (val) {
+                    $('.dialog__detail, .dialog__drawtip, .dialog__userinfo')
+                        .removeClass('active')
+                }
+            })
+            // self.checkDrawCode(code)
         })
         $('#submit-userinfo').on('click', this.submitUserInfo)
         $('.btn__award').on('click', e => this.getDrawList())

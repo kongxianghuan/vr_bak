@@ -5,7 +5,7 @@ var WX_CONFIG = {
     titleShare : document.title,
     urlShare: location.href,
     picShare: 'https://img.gd.sohu.com/norefer/changan/20180216/0.jpg',
-    txtShare: '京东E卡礼包及搜狐视频VIP卡等你来拿'
+    txtShare: '抢VR红包，得新年好彩头'
 }
 
 function isWeixin() {
